@@ -1,4 +1,4 @@
-const CACHE='forever-companion-v1-20261018';
+const CACHE='forever-companion-v21-20261019';
 const FILES=['./','./index.html','./styles.css','./app.js','./manifest.webmanifest','./icon-192.png','./icon-512.png','./icon-180.png','./icon.svg'];
 self.addEventListener('install',ev=>{ev.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',ev=>{ev.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('forever-companion-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
